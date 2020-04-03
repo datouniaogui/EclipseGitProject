@@ -37,6 +37,9 @@ public class UserTest {
 		user.setPassword("909091");
 		int result=userService.addSave(user);
 		System.err.println("result:"+result);
+		
+		
+		//哈哈哈哈哈
 	}
 	
 	
