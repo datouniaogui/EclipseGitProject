@@ -1,0 +1,48 @@
+server:
+   port: 8888
+   
+# 通过yal给对象注入数据   
+student:
+  # name: zs
+  # age: 18
+   email: aaa
+   uname: cs
+   sex: true
+   birthday: 2020/02/22
+   # Map
+   location: {provice: "江\n苏",city: "无锡",zone: "锡山区"}
+     # provice: 江苏
+     # city: 无锡
+     # zone: 锡山区
+     
+   # 数组
+   hobbies: # [足球,篮球]
+      - 篮球
+      - 足球
+      
+   # 集合   
+   skills:
+     # [编程,金融]
+     编程,金融
+     # - 编程
+     # - 金融
+      
+   #对象   
+   pet: # {nickName: wc,strain: hsq}
+      nickName: wc
+      strain: hsq
+ 
+ #  注意：  
+ #   1.k:空格v
+ #   2.通过垂直对齐指定层级关系
+ #   3.默认可以不写引号；""会将其中的转义字符进行转义
+ #   4.对象添加注解
+ #     @ConfigurationProperties(prefix="student")
+ #     @Component //将此javabeen放入spring容器
+   
+   
+   
+   
+   
+   
+   

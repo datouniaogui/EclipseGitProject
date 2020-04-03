@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>1</h1>
+	<div style="border: solid; border-color: red;"
+		th:insert="~{result :: footerFragment}">
+		这是一个空div
+		<div>是的，我知道！</div>
+	</div>
+
+
+	<h1>2</h1>
+	<div style="border: solid; border-color: red;"
+		th:replace="~{result :: footerFragment}">
+		这是一个空div
+		<div>是的，我知道！</div>
+	</div>
+
+	<h1>3</h1>
+	<div style="border: solid; border-color: red;"
+		th:replace="result :: footerFragment">
+		这是一个空div
+		<div>是的，我知道！</div>
+	</div>
+
+
+	<div th:fragment="ex2(str1,str2)">
+		<p th:text="${str1}"></p>
+		<p th:text="${str2}"></p>
+	</div>
+
+	<h1>4</h1>
+	<div th:insert="::ex2('爸爸','儿子')"></div>
+
+	<hr>
+
+	<div th:fragment="crumbs(parent, child)">
+		<i th:text="${parent}"></i> <i th:text="${child}"></i>
+	</div>
+
+	<div th:insert="::crumbs('用户中心', '我的订单')"></div>
+	<div th:insert="::ex2('用户中心', '我的订单')"></div>
+
+	<!--	<h1>4.引用整个模板</h1>
+ 	<div style="border: solid; border-color: red;"
+		th:replace="result">
+		这是一个空div
+		<div>是的，我知道！</div>
+	</div> -->
+
+	<hr>
+	<div id="footer" th:fragment="footerFragment">替换代码</div>
+	<hr>
+	<!-- zh_CN -->
+	<p th:text="${#ctx.getLocale()}"></p>
+	<!-- Welcome to BeiJing! -->
+	<p th:text="${#ctx.getVariable('message')}"></p>
+	<!-- true -->
+	<p th:text="${#ctx.containsVariable('message')}"></p>
+
+	<hr>
+	<p th:text="#{message.str('阿健')}"></p>
+
+	<hr>
+	<!-- zh_CN -->
+	<p th:text="${#locale}"></p>
+	<!-- CN -->
+	<p th:text="${#locale.country}"></p>
+	<!-- 中国 -->
+	<p th:text="${#locale.displayCountry}"></p>
+	<!-- zh -->
+	<p th:text="${#locale.language}"></p>
+	<!-- 中文 -->
+	<p th:text="${#locale.displayLanguage}"></p>
+	<!-- 中文 (中国) -->
+	<p th:text="${#locale.displayName}"></p>
+
+	<hr>
+	<!-- HTTP/1.1 -->
+	<p th:text="${#request.protocol}"></p>
+	<!-- http -->
+	<p th:text="${#request.scheme}"></p>
+	<!-- localhost -->
+	<p th:text="${#request.serverName}"></p>
+	<!-- 8080 -->
+	<p th:text="${#request.serverPort}"></p>
+	<!-- GET -->
+	<p th:text="${#request.method}"></p>
+	<!-- /standard-expression-syntax/variables -->
+	<p th:text="${#request.requestURI}"></p>
+	<!-- http://localhost:8080/standard-expression-syntax/variables -->
+	<p th:text="${#request.requestURL}"></p>
+	<!-- /standard-expression-syntax/variables -->
+	<p th:text="${#request.servletPath}"></p>
+	<!-- java.util.Collections$3@203646fe -->
+	<p th:text="${#request.parameterNames}"></p>
+	<!-- {q=[Ljava.lang.String;@3308c69f} -->
+	<p th:text="${#request.parameterMap}"></p>
+	<!-- q=expression -->
+	<p th:text="${#request.queryString}"></p>
+
+	<hr>
+	<p th:text="${param.q}"></p>
+
+	<hr>
+	<!-- false -->
+	<p th:text="${#strings.isEmpty(message)}"></p>
+	<!-- 2017-07-12 00:37:25 -->
+	<p th:text="${#dates.format(now, 'yyyy-MM-dd HH:mm:ss')}"></p>
+	
+	<hr>
+	<div th:if="${user != null}"> 不显示</div>
+	<div th:if="${'str' != null}"> 显示</div>
+	<div th:if="'str'!= null"> 显示2</div>
+
+
+</body>
+</html>
