@@ -12,7 +12,7 @@ import com.ly.DemoSpringBoot.entiy.Student;
 
 @Controller
 public class HelloWordController {
-	
+	//你好
 
 	@ResponseBody
 	@RequestMapping("hello")

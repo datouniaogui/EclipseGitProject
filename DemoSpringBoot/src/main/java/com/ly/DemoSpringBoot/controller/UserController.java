@@ -18,6 +18,7 @@ import com.ly.DemoSpringBoot.service.IUserService;
 @Controller
 @RequestMapping("user")
 public class UserController {
+	//你好
 
 	@Autowired
 	IUserService userService;
