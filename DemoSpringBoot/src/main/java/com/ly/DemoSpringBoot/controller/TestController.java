@@ -9,5 +9,8 @@ public class TestController {
 
     public static void main(String[] args) {
         System.out.println("各种优势不要学！");
+        System.out.println("各种优势不要学！");
+        System.out.println("各种优势不要学！");
+        //这是test分支
     }
 }
